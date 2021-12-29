@@ -8,6 +8,7 @@ class UC1 {
 
 	static ArrayList<String> names = new ArrayList<String>();
 	static ArrayList<String> lastname = new ArrayList<String>();
+	static ArrayList<String> emails = new ArrayList<String>();
 
 	public void firstname() {
 		names.add("Java");
@@ -36,11 +37,32 @@ class UC1 {
 			System.out.println(lastname.get(i) + "->" + m.matches());
 		}
 	}
+
+	public void validemail() {
+//		emails.add("user@domain.com");
+//		emails.add("user@domain.co.in");
+//		emails.add("user.name@domain.com");
+		emails.add("Abc.xyz@domain.bl.co.in");
+		emails.add("abc_xyz@domain.co.in");
+
+		// Invalid emails
+		emails.add("@yahoo.com");
+
+		String regex = "[A-Za-z0-9_.-]+@(.+)";
+
+		Pattern pattern = Pattern.compile(regex);
+
+		for (String email : emails) {
+			Matcher matcher = pattern.matcher(email);
+			System.out.println("The valid and invalid emails are :");
+			System.out.println(email + " : " + matcher.matches());
+		}
+	}
 	
 	public static void main(String args[]) {
 
 		UC1 obj = new UC1();
-		obj.lastname();
+		obj.validemail();
 
 	}
 }
