@@ -9,6 +9,7 @@ class UC1 {
 	static ArrayList<String> names = new ArrayList<String>();
 	static ArrayList<String> lastname = new ArrayList<String>();
 	static ArrayList<String> emails = new ArrayList<String>();
+	static ArrayList<String> numbers = new ArrayList<String>();
 
 	public void firstname() {
 		names.add("Java");
@@ -58,11 +59,25 @@ class UC1 {
 			System.out.println(email + " : " + matcher.matches());
 		}
 	}
+
+	public void mobileformat() {
+		numbers.add("91 9105566743");
+		numbers.add("12 9134556789");
+
+		String regex = "(0|91 )[9][0-9]{9}";
+
+		Pattern pattern = Pattern.compile(regex);
+
+		for (String number : numbers) {
+			Matcher matcher = pattern.matcher(number);
+			System.out.println(number + " : " + matcher.matches());
+		}
+	}
 	
 	public static void main(String args[]) {
 
 		UC1 obj = new UC1();
-		obj.validemail();
+		obj.mobileformat();
 
 	}
 }
