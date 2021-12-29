@@ -10,6 +10,7 @@ class UC1 {
 	static ArrayList<String> lastname = new ArrayList<String>();
 	static ArrayList<String> emails = new ArrayList<String>();
 	static ArrayList<String> numbers = new ArrayList<String>();
+	static ArrayList<String> ch = new ArrayList<String>();
 
 	public void firstname() {
 		names.add("Java");
@@ -73,11 +74,26 @@ class UC1 {
 			System.out.println(number + " : " + matcher.matches());
 		}
 	}
+
+	public void character() {
+		ch.add("Loki");
+		ch.add("Lokes2hes");
+		String regex = "[A-Za-z]{8,}";
+
+		Pattern pattern = Pattern.compile(regex);
+
+		for (String chs : ch) {
+			Matcher matcher = pattern.matcher(chs);
+			System.out.println("The character are :");
+			System.out.println(chs + " : " + matcher.matches());
+		}
+	}
+
 	
 	public static void main(String args[]) {
 
 		UC1 obj = new UC1();
-		obj.mobileformat();
+		obj.character();
 
 	}
 }
