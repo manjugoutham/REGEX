@@ -12,6 +12,7 @@ class UC1 {
 	static ArrayList<String> numbers = new ArrayList<String>();
 	static ArrayList<String> ch = new ArrayList<String>();
 	static ArrayList<String> uppercase = new ArrayList<String>();
+	static ArrayList<String> numeric = new ArrayList<String>();
 
 	public void firstname() {
 		names.add("Java");
@@ -103,12 +104,27 @@ class UC1 {
 			System.out.println(rule + " : " + matcher.matches());
 		}
 	}
+	
+	public void rule3() {
+		numeric.add("javabasic");
+		numeric.add("wonderFul2");
+
+		String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]){8,}.*$";
+
+		Pattern pattern = Pattern.compile(regex);
+
+		for (String value : numeric) {
+			Matcher matcher = pattern.matcher(value);
+			System.out.println("The numeric number is :");
+			System.out.println(value + " : " + matcher.matches());
+		}
+	}
 
 	
 	public static void main(String args[]) {
 
 		UC1 obj = new UC1();
-		obj.rule2();
+		obj.rule3();
 
 	}
 }
