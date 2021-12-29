@@ -11,6 +11,7 @@ class UC1 {
 	static ArrayList<String> emails = new ArrayList<String>();
 	static ArrayList<String> numbers = new ArrayList<String>();
 	static ArrayList<String> ch = new ArrayList<String>();
+	static ArrayList<String> uppercase = new ArrayList<String>();
 
 	public void firstname() {
 		names.add("Java");
@@ -89,11 +90,25 @@ class UC1 {
 		}
 	}
 
+	public void rule2() {
+		uppercase.add("advanced");
+		uppercase.add("coreJava");
+		String regex = "^(?=.*[a-z])(?=.*[A-Z]){8,}.*$";
+
+		Pattern pattern = Pattern.compile(regex);
+
+		for (String rule : uppercase) {
+			Matcher matcher = pattern.matcher(rule);
+			System.out.println("Should have at least Upper Case :");
+			System.out.println(rule + " : " + matcher.matches());
+		}
+	}
+
 	
 	public static void main(String args[]) {
 
 		UC1 obj = new UC1();
-		obj.character();
+		obj.rule2();
 
 	}
 }
