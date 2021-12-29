@@ -14,6 +14,7 @@ class UC1 {
 	static ArrayList<String> uppercase = new ArrayList<String>();
 	static ArrayList<String> numeric = new ArrayList<String>();
 	static ArrayList<String> specialchar = new ArrayList<String>();
+	static ArrayList<String> emailtest = new ArrayList<String>();
 
 	public void firstname() {
 		names.add("Java");
@@ -136,13 +137,48 @@ class UC1 {
 		}
 	}
 
-	
+	public void sampleemailstotest() {
+		emailtest.add("abc@yahoo.com");
+		emailtest.add("abc-100@yahoo.com");
+		emailtest.add("abc.100@yahoo.com");
+		emailtest.add("abc111@abc.com");
+		emailtest.add("abc-100@abc.com");
+		emailtest.add("abc.100@abc.com.au");
+		emailtest.add("abc@1com");
+		emailtest.add("abc@gmail.com.com");
+		emailtest.add("abc+100@gmail.com");
+
+		// Invalid emails
+		emailtest.add("@yahoo.com");
+		emailtest.add(".yahoo.com");
+		emailtest.add("..yahoo.com");
+		emailtest.add("abc@abc@gmail.com");
+		emailtest.add("abc@%*.com");
+		
+
+		String regex = "^(.+)@(.+)$";
+
+		Pattern pattern = Pattern.compile(regex);
+
+		for (String test : emailtest) {
+			Matcher matcher = pattern.matcher(test);
+			System.out.println("The valid and invalid emails are :");
+			System.out.println(test + " : " + matcher.matches());
+		}
+	}
 
 	public static void main(String args[]) {
 
 		UC1 obj = new UC1();
-
-		obj.rule4();
+//		obj.firstname();
+//		obj.lastname();
+//		obj.validemail();
+//		obj.mobileformat();
+//		obj.character();
+//		obj.rule2();
+//		obj.rule3();
+//		obj.rule4();
+		obj.sampleemailstotest();
 
 	}
 }
