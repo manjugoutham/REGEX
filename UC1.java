@@ -6,7 +6,8 @@ import java.util.regex.*;
 
 class UC1 {
 
-	static ArrayList<String> names = new ArrayList<String>()
+	static ArrayList<String> names = new ArrayList<String>();
+	static ArrayList<String> lastname = new ArrayList<String>();
 
 	public void firstname() {
 		names.add("Java");
@@ -22,12 +23,24 @@ class UC1 {
 		}
 	}
 
+	public void lastname() {
+		lastname.add("Na");
+		lastname.add("Naiz");
+		String regex = "[A-Z]{1}[a-z]{3}";
+
+		Pattern p = Pattern.compile(regex);
+
+		for (int i = 0; i < lastname.size(); i++) {
+			Matcher m = p.matcher(lastname.get(i));
+			System.out.println("The Last name is :");
+			System.out.println(lastname.get(i) + "->" + m.matches());
+		}
+	}
 	
 	public static void main(String args[]) {
 
 		UC1 obj = new UC1();
-		obj.firstname();
-
+		obj.lastname();
 
 	}
 }
